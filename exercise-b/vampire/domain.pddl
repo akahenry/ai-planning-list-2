@@ -21,7 +21,88 @@
             (not (fighting))
         )
         :effect (and
-;; Add your solution here.
+            (when
+                (not (light-on ?room))
+                (and
+                    (light-on ?room)
+                    (when 
+                        (vampire-is-in ?room)
+                        (and 
+                            (not (vampire-is-in ?room))
+                            (when 
+                                (not (light-on ?anti-clockwise-neighbor))
+                                (and
+                                    (vampire-is-in ?anti-clockwise-neighbor)
+                                    (when
+                                        (slayer-is-in ?anti-clockwise-neighbor)
+                                        (fighting)
+                                    )
+                                )
+                            )
+                            (when
+                                (light-on ?anti-clockwise-neihgbor)
+                                (and
+                                    (when 
+                                        (not (light-on ?clockwise-neighbor))
+                                        (and
+                                            (vampire-is-in ?clockwise-neighbor)
+                                            (when
+                                                (slayer-is-in ?clockwise-neighbor)
+                                                (fighting)
+                                            )
+                                        )
+                                    )
+                                    (when
+                                        (and
+                                            (light-on ?anti-clockwise-neighbor)
+                                            (light-on ?clockwise-neighbor)
+                                        )
+                                        (and
+                                            (vampire-is-in ?clockwise-neighbor)
+                                            (when
+                                                (slayer-is-in ?clockwise-neighbor)
+                                                (fighting)
+                                            )
+                                        )
+                                    )
+                                )
+                            ) 
+                        )
+                    )
+                )
+            )
+            (when
+                (light-on ?room)
+                (and
+                    (not (light-on ?room))
+                    (when 
+                        (slayer-is-in ?room)
+                        (and 
+                            (not (slayer-is-in ?room))
+                            (when 
+                                (light-on ?clockwise-neighbor)
+                                (and
+                                    (slayer-is-in ?clockwise-neighbor)
+                                    (when
+                                        (vampire-is-in ?clockwise-neighbor)
+                                        (fighting)
+                                    )
+                                )
+                            )
+                            (when
+                                (not (light-on ?clockwise-neihgbor))
+                                (and
+                                    (slayer-is-in ?anti-clockwise-neighbor)
+                                    (when
+                                        (vampire-is-in ?anti-clockwise-neighbor)
+                                        (fighting)
+                                    )
+                                )
+                            )
+                        )
+                    )
+                )
+            )
         )
     )
 
@@ -35,7 +116,22 @@
             (fighting)
         )
         :effect (and
-;; Add your solution here.
+            (not (fighting))
+            (when 
+                (CONTAINS-GARLIC ?room)
+                (not (vampire-is-alive))
+            )
+            (when
+                (light-on ?room)
+                (not (vampire-is-alive))
+            )
+            (when
+                (and
+                    (not (CONTAINS-GARLIC ?room))
+                    (not (light-on ?room))
+                )
+                (not (slayer-is-alive))
+            )
         )
     )
 )
