@@ -42,28 +42,10 @@
                             (when
                                 (light-on ?anti-clockwise-neighbor)
                                 (and
-                                    (when 
-                                        (not (light-on ?clockwise-neighbor))
-                                        (and
-                                            (vampire-is-in ?clockwise-neighbor)
-                                            (when
-                                                (slayer-is-in ?clockwise-neighbor)
-                                                (fighting)
-                                            )
-                                        )
-                                    )
+                                    (vampire-is-in ?clockwise-neighbor)
                                     (when
-                                        (and
-                                            (light-on ?anti-clockwise-neighbor)
-                                            (light-on ?clockwise-neighbor)
-                                        )
-                                        (and
-                                            (vampire-is-in ?clockwise-neighbor)
-                                            (when
-                                                (slayer-is-in ?clockwise-neighbor)
-                                                (fighting)
-                                            )
-                                        )
+                                        (slayer-is-in ?clockwise-neighbor)
+                                        (fighting)
                                     )
                                 )
                             ) 
