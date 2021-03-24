@@ -40,7 +40,7 @@
                                 )
                             )
                             (when
-                                (light-on ?anti-clockwise-neihgbor)
+                                (light-on ?anti-clockwise-neighbor)
                                 (and
                                     (when 
                                         (not (light-on ?clockwise-neighbor))
@@ -90,7 +90,7 @@
                                 )
                             )
                             (when
-                                (not (light-on ?clockwise-neihgbor))
+                                (not (light-on ?clockwise-neighbor))
                                 (and
                                     (slayer-is-in ?anti-clockwise-neighbor)
                                     (when
