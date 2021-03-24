@@ -1,0 +1,5 @@
+downward-main/
+sas_plan
+
+*.o
+*.pyc
